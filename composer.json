@@ -1,5 +1,5 @@
 {
-  "name": "agjino/PHP-Database-Layer",
+  "name": "agjino/php-mysql-layer",
   "description": "Simple PHP class for doing standard MySQL actions.",
   "minimum-stability": "stable",
   "license": "MIT",
