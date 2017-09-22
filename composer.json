@@ -1,12 +1,11 @@
 {
-  "name": "tschoffelen/db.php",
+  "name": "agjino/PHP-Database-Layer",
   "description": "Simple PHP class for doing standard MySQL actions.",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
     {
-      "name": "Thomas Schoffelen",
-      "email": "me@thomasschoffelen.com"
+      "name": "Albi Gjino"
     }
   ],
   "autoload": {
