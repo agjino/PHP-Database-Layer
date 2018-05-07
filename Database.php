@@ -690,3 +690,66 @@ class Database
     return $datarow[$field];
   }
 }
+
+class StringUtils {
+  /**
+   * Generate random string
+   *
+   * @param int $length Length of the random string to be generated.
+   * @param string $characters Set of characters to use for the string.
+   *
+   * @return string The random string.
+   */
+  static public function randomString($length = 16, $characters =
+    '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' ) {
+   
+    if (!is_int($length) || $length < 0) {
+      return false;
+    }
+    
+    $characters_length = strlen($characters) - 1;
+    $string = '' ;
+    
+    for ($i = $length; $i > 0; $i-- ) {
+      $string .= $characters[mt_rand(0, $characters_length)];
+    }
+    
+    return $string;
+  }
+  
+  static public function utf8_for_xml($string) {
+    return preg_replace('/[^\x{0009}\x{000a}\x{000d}\x{0020}-\x{D7FF}\x{E000}-\x{FFFD}]+/u', ' ', $string);
+  }
+
+  static public function createGUID()
+  {
+    return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X',
+           mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479),
+           mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+  }
+
+  static public function startsWith($haystack, $needle)
+  {
+     $length = strlen($needle);
+     return (substr($haystack, 0, $length) === $needle);
+  }
+
+  static public function endsWith($haystack, $needle)
+  {
+    $length = strlen($needle);
+    if ($length == 0) {
+      return true;
+    }
+
+    return (substr($haystack, -$length) === $needle);
+  }
+
+  static public function left($str, $length) {
+    return substr($str, 0, $length);
+  }
+
+  static public function right($str, $length) {
+    return substr($str, -$length);
+  }
+
+}
