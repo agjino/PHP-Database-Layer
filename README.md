@@ -110,7 +110,7 @@ ex: 'amount!' => 'amount - 100'
 Example:
 
 ```
-// set amount per pack to 5 for all Kitkats
+// Move an employee to another department and update their positions count
 $db->update(
 	'employees',
 	array( // fields to be updated
