@@ -104,17 +104,21 @@ Usage:
 $db->update($table, $fields=array(), $where=array())
 ```
 
+If you need to set a value based on a formula, ex. {previousValue} + 1, end the field name with an exclamation mark (!),
+ex: 'amount!' => 'amount - 100'
+
 Example:
 
 ```
 // set amount per pack to 5 for all Kitkats
 $db->update(
-	'candy',
+	'employees',
 	array( // fields to be updated
-		'amount_per_pack' => 5
+		'department' => 'IT',
+		'positions!' => 'positions + 1' //Note the exclamation mark (!) at the end
 	),
 	array( // 'WHERE' clause
-		'brand' => 'Kitkat'
+		'id' => '815'
 	)
 );
 ```
